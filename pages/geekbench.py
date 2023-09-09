@@ -3,7 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import rc, font_manager
 import numpy as np
-
+import os
+import matplotlib.font_manager as fm
 data = pd.DataFrame({
     '이름': ['아이폰14p','아이폰14pm','ipad m2','s23u','s23+','s7+tab'],
     '싱글코어':[2518,2517,2489,1878,1870,1202],
@@ -11,9 +12,14 @@ data = pd.DataFrame({
 })
 st.dataframe(data, use_container_width=True)
 
-font_path = "c:/windows/Fonts/BATANG.TTC"
-font= font_manager.FontProperties(fname=font_path).get_name()
-plt.rc('font',family=font)
+
+font_dirs = [os.getcwd() + '/customFonts']
+font_files = fm.findSystemFonts(fontpaths=font_dirs)
+
+for font_file in font_files:
+    fm.fontManager.addfont(font_file)
+fm._load_fontmanager(try_read_cache=False)
+
 plt.rc('font', family='NanumGothic')
 fig1,  ax = plt.subplots()
 plt.title("스마트폰 싱글코어 성능")
