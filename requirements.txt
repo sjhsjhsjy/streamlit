@@ -2,6 +2,4 @@ streamlit
 pandas
 datetime
 matplotlib
-matplotlib.pyplot
-matplotlib import rc, font_manager
- numpy
+numpy
