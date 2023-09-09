@@ -14,7 +14,7 @@ st.dataframe(data, use_container_width=True)
 font_path = "c:/windows/Fonts/BATANG.TTC"
 font= font_manager.FontProperties(fname=font_path).get_name()
 plt.rc('font',family=font)
-
+plt.rc('font', family='NanumGothic')
 fig1,  ax = plt.subplots()
 plt.title("스마트폰 싱글코어 성능")
 
